@@ -8,7 +8,9 @@ class StateProviderScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final counter = ref.watch(counterProvider);
+    final counterProvider10 = counterProvider(initialValue: 10);
+    final counter = ref.watch(counterProvider10);
+    // final counter = ref.watch(counterProvider());
     final isDarkMode = ref.watch(darkModeProvider);
     final userName = ref.watch(userNameProvider);
 
@@ -35,7 +37,12 @@ class StateProviderScreen extends ConsumerWidget {
               size: 50,
             ),
             label: Text('$counter', style: const TextStyle(fontSize: 100)),
-            onPressed: ref.read(counterProvider.notifier).increaseByOne,
+            // onPressed: ref
+            //     .read(counterProvider().notifier)
+            //     .increaseByOne,
+            onPressed: ref
+                .read(counterProvider10.notifier)
+                .increaseByOne,
           ),
           const Spacer(flex: 2),
         ],

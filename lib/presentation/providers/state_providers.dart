@@ -5,7 +5,7 @@ part 'state_providers.g.dart';
 @Riverpod(keepAlive: true)
 class Counter extends _$Counter {
   @override
-  int build() => 0;
+  int build({int initialValue = 0}) => initialValue;
 
   void increaseByOne() {
     state++;
